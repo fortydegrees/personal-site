@@ -10,7 +10,7 @@ collections:
     label: "Weblogs"
     folder: "content/weblogs"
     create: true
-    slug: "{{slug}}"
+    slug: "/weblog/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
     date: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "weblog"}
