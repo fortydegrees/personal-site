@@ -16,56 +16,34 @@ type Props = {
 
 const IndexTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
-
-  const {
-    currentPage,
-    hasNextPage,
-    hasPrevPage,
-    prevPagePath,
-    nextPagePath
-  } = pageContext;
-
-
-  const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const { html: pageBody } = data.markdownRemark;
+  const { title: pageTitle, description: pageDescription } = data.markdownRemark.frontmatter;
+  const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
-      <Sidebar isIndex />
-      <Page>
-        <Feed edges={edges} />
-        <Pagination
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-        />
+    <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
+      <Sidebar />
+      <Page title={pageTitle}>
+        <div dangerouslySetInnerHTML={{ __html: pageBody }} />
       </Page>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
-    allMarkdownRemark(
-        limit: $postsLimit,
-        skip: $postsOffset,
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
-      edges {
-        node {
-          fields {
-            slug
-            categorySlug
-          }
-          frontmatter {
-            title
-            date
-            category
-            description
-          }
-        }
+    query IndexBySlug {
+    markdownRemark(fields: { slug: { eq: "/" } }) {
+      id
+      html
+      fields {
+        slug
+        tagSlugs
+      }
+      frontmatter {
+        date
+        description
+        tags
+        title
       }
     }
   }
