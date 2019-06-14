@@ -2,21 +2,25 @@
 
 module.exports = {
   url: 'https://david-pratt.com',
-  title: 'Blog by David Pratt',
-  subtitle: 'David Pratt\'s Blog',
+  title: 'David Pratt',
+  subtitle: 'David Pratt',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-142160792-1',
   menu: [
     {
-      label: 'Posts',
-      path: '/'
+      label: 'Pioneer',
+      path: '/pioneer',
     },
     {
-      label: 'About',
-      path: '/about'
-    }
+      label: 'Articles',
+      path: '/posts',
+    },
+    {
+      label: 'Weblog',
+      path: '/weblog'
+    },
   ],
   author: {
     name: 'David Pratt',
