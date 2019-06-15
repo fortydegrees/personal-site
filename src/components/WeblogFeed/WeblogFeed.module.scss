@@ -36,10 +36,13 @@
 
     &-meta {
       &-time {
+        display:block;
         font-size: $typographic-small-font-size;
         color: $color-base;
         font-weight: 600;
-        text-transform: uppercase;
+        text-align: right;
+        text-transform: lowercase;
+        border-bottom: 1px solid lightgrey;
       }
 
       &-divider {
