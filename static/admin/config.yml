@@ -15,21 +15,36 @@ collections:
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "weblog"}
       - {label: "Category", name: "category", widget: "hidden", default: "pioneer"}
+      - {label: "Title", name: "title", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Date", name: "date", widget: "hidden", default: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"}
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          dateFormat: 'YYYY-MM-DD',
+          timeFormat: 'HH:mm',
+          format: 'YYYY-MM-DD HH:mm',
+        }
 
   - name: "weblogs"
     label: "Weblogs"
     folder: "content/weblogs"
     create: true
     slug: "{{slug}}"
-    identifier_field: body
+    identifier_field: date
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "weblog"}
       - {label: "Category", name: "category", widget: "hidden", default: "weblog"}
+      - {label: "Title", name: "title", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Date", name: "date", widget: "hidden", default: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"}
-
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          dateFormat: 'YYYY-MM-DD',
+          timeFormat: 'HH:mm',
+          format: 'YYYY-MM-DD HH:mm',
+        }
 
   - name: "articles"
     label: "Articles"

@@ -23,6 +23,7 @@ query PioneersListQuery {
             category
             description
           }
+          html
         }
       }
     }
