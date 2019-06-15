@@ -6,16 +6,29 @@ media_folder: "static/media"
 public_folder: "/media"
 
 collections:
+  - name: "pioneer"
+    label: "Pioneer"
+    folder: "content/weblogs"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: date
+    fields:
+      - {label: "Template", name: "template", widget: "hidden", default: "weblog"}
+      - {label: "Category", name: "category", widget: "hidden", default: "pioneer"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Date", name: "date", widget: "hidden", default: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"}
+
   - name: "weblogs"
     label: "Weblogs"
     folder: "content/weblogs"
     create: true
-    slug: "/weblog/{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
-    date: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    slug: "{{slug}}"
+    identifier_field: body
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "weblog"}
-      - {label: "Category", name: "category", widget: "string"}
+      - {label: "Category", name: "category", widget: "hidden", default: "weblog"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Date", name: "date", widget: "hidden", default: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"}
 
 
   - name: "articles"

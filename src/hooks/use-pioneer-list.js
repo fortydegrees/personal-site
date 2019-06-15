@@ -1,14 +1,14 @@
 // @flow
 import { useStaticQuery, graphql } from 'gatsby';
 
-const useWeblogsList = () => {
+const usePioneersList = () => {
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
-query WeblogsListQuery {
+query PioneersListQuery {
     allMarkdownRemark(
         limit: 5,
         skip: 0,
-        filter: { frontmatter: { category: { eq: "weblog" }, draft: { ne: true } } },
+        filter: { frontmatter: { category: { eq: "pioneer" }, draft: { ne: true } } },
         sort: { order: DESC, fields: [frontmatter___date] }
       ){
       edges {
@@ -33,4 +33,4 @@ query WeblogsListQuery {
   return allMarkdownRemark;
 };
 
-export default useWeblogsList;
+export default usePioneersList;

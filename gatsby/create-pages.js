@@ -39,7 +39,7 @@ const createPages = async ({ graphql, actions }) => {
 
       createPage({
     path: '/pioneer',
-    component: path.resolve('./src/templates/weblogs-list-template.js')
+    component: path.resolve('./src/templates/pioneer-list-template.js')
   });
 
   // Posts and pages from markdown
