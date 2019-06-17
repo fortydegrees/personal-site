@@ -4,4 +4,4 @@ title: index
 slug: /
 draft: true
 ---
-my website :)
+currently a repository for my [public diary](david-pratt.com/pioneer) while doing a Pioneer tournament.
