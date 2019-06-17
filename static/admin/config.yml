@@ -8,7 +8,7 @@ public_folder: "/media"
 collections:
   - name: "pioneer"
     label: "Pioneer"
-    folder: "content/weblogs"
+    folder: "content/pioneer"
     create: true
     slug: "{{slug}}"
     identifier_field: date
