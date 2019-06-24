@@ -6,7 +6,7 @@ const usePioneersList = () => {
     graphql`
 query PioneersListQuery {
     allMarkdownRemark(
-        limit: 5,
+        limit: 50,
         skip: 0,
         filter: { frontmatter: { category: { eq: "pioneer" }, draft: { ne: true } } },
         sort: { order: DESC, fields: [frontmatter___date] }
