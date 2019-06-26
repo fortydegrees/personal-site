@@ -5,7 +5,7 @@ slug: /posts/simple-hard-complex-easy
 draft: false
 date: 2019-06-26T07:47:04.510Z
 description: Not important
-category: mental model
+category: writing
 ---
 think of a 2x2 matrix: easy, hard : simple, complex
 
