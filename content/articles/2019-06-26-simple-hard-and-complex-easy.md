@@ -2,10 +2,10 @@
 template: post
 title: Simple Hard and Complex Easy
 slug: /posts/simple-hard-complex-easy
-draft: true
+draft: false
 date: 2019-06-26T07:47:04.510Z
 description: Not important
-category: posts
+category: mental model
 ---
 think of a 2x2 matrix: easy, hard : simple, complex
 
