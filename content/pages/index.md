@@ -4,7 +4,7 @@ title: index
 slug: /
 draft: true
 ---
-![](/media/img_1904.jpg)
+![](/media/affirmations.jpg)
 
 this site is currently a repository for my [public diary](pioneer) while doing a Pioneer tournament.
 
