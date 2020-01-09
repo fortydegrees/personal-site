@@ -6,8 +6,6 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import Author from '../components/Sidebar/Author'
-import Contacts from '../components/Sidebar/Contacts'
 import { useSiteMetadata } from '../hooks';
 import type { PageContext, AllMarkdownRemark } from '../types';
 
@@ -17,7 +15,7 @@ type Props = {
 };
 
 const IndexTemplate = ({ data, pageContext }: Props) => {
-  const { subtitle: siteSubtitle, author } = useSiteMetadata();
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {
     currentPage,
@@ -27,19 +25,29 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     nextPagePath
   } = pageContext;
 
+
+  const { edges } = data.allMarkdownRemark;
+  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+
   return (
-    <Layout title="David Pratt" description={siteSubtitle}>
-        <div style={{marginTop: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                <Author author={author} isIndex={false} />
-        {/* <Menu menu={menu} /> */}
-        <Contacts contacts={author.contacts} />
-        </div>
+    <Layout title={pageTitle} description={siteSubtitle}>
+      <Sidebar isIndex />
+      <Page>
+        <Feed edges={edges} />
+        {hasNextPage &&         <Pagination
+          prevPagePath={prevPagePath}
+          nextPagePath={nextPagePath}
+          hasPrevPage={hasPrevPage}
+          hasNextPage={hasNextPage}
+        />}
+
+      </Page>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
+  query IndexTemplateOld($postsLimit: Int!, $postsOffset: Int!) {
     allMarkdownRemark(
         limit: $postsLimit,
         skip: $postsOffset,
